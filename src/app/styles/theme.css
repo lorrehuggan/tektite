@@ -1,0 +1,106 @@
+@theme {
+  /* Jellybeans Color Palette */
+
+  /* Base Colors */
+  --color-base: hsl(240, 9%, 9%);
+  --color-mantle: hsl(240, 8%, 7%);
+  --color-crust: hsl(240, 10%, 5%);
+
+  /* Surface Colors */
+  --color-surface-0: hsl(240, 9%, 9%);
+  --color-surface-1: hsl(240, 8%, 12%);
+  --color-surface-2: hsl(240, 7%, 15%);
+  --color-surface-3: hsl(240, 6%, 18%);
+
+  /* Background Colors */
+  --color-background: hsl(240, 9%, 9%);
+  --color-background-muted: hsl(240, 8%, 12%);
+  --color-background-subtle: hsl(240, 7%, 15%);
+
+  /* Text Colors */
+  --color-text: hsl(0, 0%, 87%);
+  --color-text-muted: hsl(0, 0%, 70%);
+  --color-text-subtle: hsl(0, 0%, 55%);
+  --color-subtext-0: hsl(0, 0%, 70%);
+  --color-subtext-1: hsl(0, 0%, 55%);
+
+  /* Overlay Colors */
+  --color-overlay-0: hsl(240, 5%, 25%);
+  --color-overlay-1: hsl(240, 4%, 30%);
+  --color-overlay-2: hsl(240, 3%, 35%);
+
+  /* Brand/Accent Colors */
+  --color-brand: hsl(291, 64%, 42%);
+  --color-accent: hsl(291, 64%, 42%);
+  --color-primary: hsl(291, 64%, 42%);
+  --color-secondary: hsl(203, 39%, 44%);
+
+  /* Status Colors */
+  --color-success: hsl(113, 47%, 55%);
+  --color-success-muted: hsl(113, 47%, 45%);
+  --color-info: hsl(203, 39%, 44%);
+  --color-info-muted: hsl(203, 39%, 34%);
+  --color-warning: hsl(38, 95%, 54%);
+  --color-warning-muted: hsl(38, 95%, 44%);
+  --color-error: hsl(0, 93%, 66%);
+  --color-error-muted: hsl(0, 93%, 56%);
+  --color-danger: hsl(0, 93%, 66%);
+
+  /* Utility Colors */
+  --color-border: hsl(240, 7%, 15%);
+  --color-border-muted: hsl(240, 6%, 18%);
+  --color-divider: hsl(240, 7%, 15%);
+  --color-ring: hsl(291, 64%, 42%);
+  --color-input: hsl(240, 8%, 12%);
+  --color-card: hsl(240, 8%, 12%);
+  --color-popover: hsl(240, 9%, 9%);
+  --color-muted: hsl(240, 8%, 12%);
+  --color-muted-foreground: hsl(0, 0%, 70%);
+
+  /* Jellybeans Named Colors */
+  --color-purple: hsl(291, 64%, 42%);
+  --color-blue: hsl(203, 39%, 44%);
+  --color-cyan: hsl(180, 25%, 25%);
+  --color-green: hsl(113, 47%, 55%);
+  --color-yellow: hsl(38, 95%, 54%);
+  --color-orange: hsl(25, 90%, 55%);
+  --color-red: hsl(0, 93%, 66%);
+  --color-pink: hsl(330, 30%, 52%);
+  --color-gray: hsl(0, 0%, 55%);
+  --color-white: hsl(0, 0%, 87%);
+  --color-black: hsl(240, 9%, 9%);
+
+  /* Special Jellybeans Colors */
+  --color-comment: hsl(0, 0%, 55%);
+  --color-keyword: hsl(291, 64%, 42%);
+  --color-string: hsl(113, 47%, 55%);
+  --color-number: hsl(25, 90%, 55%);
+  --color-function: hsl(38, 95%, 54%);
+  --color-variable: hsl(203, 39%, 44%);
+
+  /* Border Radius */
+  --radius: 0.5rem;
+  --radius-sm: 0.25rem;
+  --radius-md: 0.375rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+
+  /* Spacing */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 hsl(240 10% 5% / 0.05);
+  --shadow:
+    0 1px 3px 0 hsl(240 10% 5% / 0.1), 0 1px 2px -1px hsl(240 10% 5% / 0.1);
+  --shadow-md:
+    0 4px 6px -1px hsl(240 10% 5% / 0.1), 0 2px 4px -2px hsl(240 10% 5% / 0.1);
+  --shadow-lg:
+    0 10px 15px -3px hsl(240 10% 5% / 0.1), 0 4px 6px -4px hsl(240 10% 5% / 0.1);
+  --shadow-xl:
+    0 20px 25px -5px hsl(240 10% 5% / 0.1),
+    0 8px 10px -6px hsl(240 10% 5% / 0.1);
+}
