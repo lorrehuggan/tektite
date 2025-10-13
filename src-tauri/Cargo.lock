@@ -1193,9 +1193,11 @@ dependencies = [
 
 [[package]]
 name = "generic-array"
+
 version = "0.14.8"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "1dc8f7d2ded5f9209535e4b3fd4d39c002f30902ff5ce9f64e2c33d549576500"
+
 dependencies = [
  "typenum",
  "version_check",
@@ -2967,6 +2969,7 @@ dependencies = [
 
 [[package]]
 name = "regex-automata"
+
 version = "0.4.12"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "722166aa0d7438abbaa4d5cc2c649dac844e8c56d82fb3d33e9c34b5cd268fc6"
@@ -3385,6 +3388,7 @@ checksum = "233504af464074f9d066d7b5416c5f9b894a5862a6506e306f7b816cdd6f1807"
 dependencies = [
  "libc",
  "windows-sys 0.59.0",
+
 ]
 
 [[package]]
