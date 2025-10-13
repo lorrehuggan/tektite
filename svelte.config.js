@@ -12,6 +12,13 @@ const config = {
     adapter: adapter({
       fallback: "index.html",
     }),
+    alias: {
+      "@/components": "./src/app/components",
+      "@/features": "./src/app/features",
+      "@/lib": "./src/app/lib",
+      "@/styles": "./src/app/styles",
+      "@/utils": "./src/app/utils",
+    },
   },
 };
 

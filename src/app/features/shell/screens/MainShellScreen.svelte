@@ -1,0 +1,16 @@
+<script lang="ts">
+  import Container from "../components/Container.svelte";
+  import LeftBar from "../components/LeftBar.svelte";
+  import Main from "../components/Main.svelte";
+  import RightBar from "../components/RightBar.svelte";
+  import StatusBar from "../components/StatusBar.svelte";
+  import TitleBar from "../components/TitleBar.svelte";
+</script>
+
+<TitleBar />
+<Container>
+  <LeftBar />
+  <Main />
+  <RightBar />
+  <StatusBar />
+</Container>

@@ -1,0 +1,12 @@
+html body {
+  background-color: var(--color-surface-0);
+  color: var(--color-text);
+}
+
+p {
+  font-size: var(--text-sm);
+}
+
+button {
+  cursor: pointer;
+}
