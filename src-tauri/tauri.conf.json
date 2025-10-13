@@ -13,8 +13,12 @@
     "windows": [
       {
         "title": "tektite",
-        "width": 800,
-        "height": 600
+        "width": 1200,
+        "height": 800,
+        "decorations": false,
+        "transparent": true,
+        "minWidth": 1200,
+        "minHeight": 800
       }
     ],
     "security": {

@@ -1,0 +1,43 @@
+# Build outputs
+build/
+dist/
+.svelte-kit/
+node_modules/
+
+# Tauri
+src-tauri/
+.tauri/
+
+# Generated files
+*.min.js
+*.min.css
+.vite/
+
+# Package files
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+bun.lockb
+
+# IDE files
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Config files that should not be formatted
+*.config.js
+*.config.ts
+vite.config.*
+svelte.config.*
+tailwind.config.*
+
+# Documentation that may have special formatting
+CHANGELOG.md
+LICENSE
