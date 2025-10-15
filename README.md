@@ -1,18 +1,34 @@
-# Tektite - Tauri + SvelteKit + TypeScript
+# Tektite - Privacy-First Markdown Knowledge Base
 
-[![Lint](https://github.com/YOUR_USERNAME/tektite/actions/workflows/lint.yml/badge.svg)](https://github.com/lorrehuggan/tektite/actions/workflows/lint.yml)
+[![Lint](https://github.com/lorrehuggan/tektite/actions/workflows/lint.yml/badge.svg)](https://github.com/lorrehuggan/tektite/actions/workflows/lint.yml)
 
-Modern desktop application built with Tauri, SvelteKit, and TypeScript featuring comprehensive code
-quality tooling.
+A privacy-first, local-first Markdown knowledge base for individuals and teams. Designed for speed,
+offline functionality, and large-scale vaults (10,000+ notes).
 
 ## 🚀 Features
 
-- **Modern Stack**: Tauri v2 + SvelteKit 2 + TypeScript 5
-- **Code Quality**: ESLint 9 + Prettier 3 with automatic formatting
-- **Path Aliases**: Clean imports with `@/` shortcuts
-- **Tailwind CSS**: Utility-first styling with class sorting
-- **Import Organization**: Automatic import sorting and organization
-- **VS Code Integration**: Seamless development experience
+### Core Knowledge Management
+
+- **📝 Markdown-First**: Native Markdown editing with live preview
+- **🔗 Bidirectional Links**: Connect ideas with `[[wiki-style]]` links
+- **🔙 Backlinks**: Automatic discovery of reverse connections
+- **📊 Graph View**: Visual network of your knowledge connections
+- **⚡ Lightning Search**: Full-text search across thousands of notes
+- **📁 Large Vaults**: Optimized for 10,000+ notes without performance loss
+
+### Privacy & Control
+
+- **🔒 Privacy-First**: Your data stays on your device
+- **💾 Local-First**: Full offline functionality
+- **🚫 No Cloud Lock-in**: Own your data completely
+- **🔐 Secure**: No telemetry or data collection
+
+### Technical Excellence
+
+- **⚡ Native Performance**: Built with Tauri for desktop-class speed
+- **🎨 Modern UI**: Clean, distraction-free interface
+- **🔧 Extensible**: Plugin architecture for customization
+- **📱 Cross-Platform**: Windows, macOS, and Linux support
 
 ## 🛠️ Development Setup
 
@@ -53,27 +69,62 @@ bun run check        # TypeScript type checking
 bun run check:watch  # Watch mode type checking
 ```
 
+## 🏗️ Architecture
+
+Built with modern technologies for performance and maintainability:
+
+- **Frontend**: SvelteKit 2 + TypeScript 5 + Tailwind CSS
+- **Backend**: Tauri v2 + Rust (native performance)
+- **Storage**: Local file system with efficient indexing
+- **Search**: Full-text search engine optimized for large datasets
+- **Rendering**: Native Markdown parsing with syntax highlighting
+
 ## 📁 Project Structure
 
 ```
 tektite/
 ├── src/
 │   ├── app/           # Application code with aliases
-│   │   ├── components/ # @/components
-│   │   ├── features/   # @/features
-│   │   ├── lib/        # @/lib
-│   │   ├── styles/     # @/styles (includes Tailwind)
-│   │   └── utils/      # @/utils
+│   │   ├── components/ # @/components - Reusable UI components
+│   │   ├── features/   # @/features - Feature-specific modules
+│   │   │   ├── editor/ # Markdown editor functionality
+│   │   │   ├── search/ # Full-text search engine
+│   │   │   ├── graph/  # Graph view and link analysis
+│   │   │   └── vault/  # Vault management and file operations
+│   │   ├── lib/        # @/lib - Shared utilities and stores
+│   │   ├── styles/     # @/styles - Tailwind CSS styles
+│   │   └── utils/      # @/utils - Helper functions
 │   ├── routes/        # SvelteKit routes
 │   └── app.html       # Main HTML template
 ├── src-tauri/         # Rust backend code
+│   ├── src/           # Tauri application logic
+│   │   ├── commands/  # Tauri commands (file operations, search)
+│   │   ├── search/    # Search engine implementation
+│   │   └── vault/     # Vault management
+│   └── Cargo.toml     # Rust dependencies
 ├── .vscode/           # VS Code settings
 ├── eslint.config.js   # Modern ESLint configuration
 ├── prettier.config.js # Prettier with plugins
 └── PATH_ALIASES.md    # Path alias documentation
 ```
 
-## 🎨 Code Style
+## 🎯 Use Cases
+
+### For Individuals
+
+- **Personal Knowledge Base**: Organize thoughts, ideas, and learning
+- **Research Notes**: Connect concepts across different domains
+- **Project Documentation**: Keep project notes and documentation linked
+- **Daily Journaling**: Reflect and connect daily experiences
+
+### For Teams
+
+- **Shared Knowledge**: Collaborative knowledge base with local-first sync
+- **Documentation**: Technical documentation with cross-references
+- **Research Collaboration**: Share insights while maintaining privacy
+- **Meeting Notes**: Connected meeting notes and action items
+
+## 🎨 Code Quality
 
 This project enforces consistent code style through automated tooling:
 
@@ -140,11 +191,47 @@ Available aliases:
 The project includes VS Code settings for automatic formatting on save, ESLint auto-fixing, and
 import organization.
 
+## 🗺️ Roadmap
+
+### Phase 1: Core Foundation ✅
+
+- [x] Basic Markdown editing
+- [x] File system operations
+- [x] Project structure and tooling
+
+### Phase 2: Knowledge Features 🚧
+
+- [ ] Bidirectional linking with `[[]]` syntax
+- [ ] Backlinks panel
+- [ ] Full-text search engine
+- [ ] Graph view visualization
+
+### Phase 3: Advanced Features 📋
+
+- [ ] Plugin system
+- [ ] Themes and customization
+- [ ] Export and import
+- [ ] Mobile companion app
+
+### Phase 4: Collaboration 🔮
+
+- [ ] Local-first sync
+- [ ] Team sharing
+- [ ] Conflict resolution
+- [ ] Access controls
+
 ## 📖 Documentation
 
 - [`.githooks/pre-commit.example`](.githooks/pre-commit.example) - Git pre-commit hook setup
+- [API Documentation](docs/api.md) - Tauri command API reference
+- [Plugin Development](docs/plugins.md) - Guide for creating plugins
+- [Architecture Overview](docs/architecture.md) - Technical architecture details
 
 ## 🤝 Contributing
+
+We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) for details.
+
+### Quick Start for Contributors
 
 1. Ensure code passes quality checks: `bun run quality:check`
 2. Format and lint before committing: `bun run quality:fix`
@@ -152,4 +239,8 @@ import organization.
 
 ## 📄 License
 
-MIT
+MIT License - see [LICENSE](LICENSE) file for details.
+
+---
+
+**Tektite**: Where knowledge connects. Privacy-first, local-first, built for scale.
