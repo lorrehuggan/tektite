@@ -1,7 +1,7 @@
 <script>
-  import MainShellScreen from "@/features/shell/screens/MainShellScreen.svelte";
+  import AppShell from "@/features/shell/screens/AppShell.svelte";
   import "@/styles/root.css";
 </script>
 
-<MainShellScreen />
+<AppShell />
 <slot />
