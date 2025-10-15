@@ -1,5 +1,7 @@
 # Tektite - Tauri + SvelteKit + TypeScript
 
+[![Lint](https://github.com/YOUR_USERNAME/tektite/actions/workflows/lint.yml/badge.svg)](https://github.com/lorrehuggan/tektite/actions/workflows/lint.yml)
+
 Modern desktop application built with Tauri, SvelteKit, and TypeScript featuring comprehensive code
 quality tooling.
 
