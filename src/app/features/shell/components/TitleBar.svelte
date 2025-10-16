@@ -1,8 +1,6 @@
 <script>
   import { Window } from "@tauri-apps/api/window";
-
-  import CloseIcon from "@/components/icons/CloseIcon.svelte";
-  import MinusIcon from "@/components/icons/MinusIcon.svelte";
+  import { Minus, X } from "lucide-svelte";
 
   const appWindow = new Window("main");
 </script>
@@ -11,12 +9,12 @@
   <div>
     <p class="uppercase">tektite</p>
   </div>
-  <div class="flex items-center gap-2">
+  <div class="flex items-center gap-1">
     <button onclick={() => appWindow.minimize()}>
-      <MinusIcon />
+      <Minus size={20} strokeWidth={1} absoluteStrokeWidth />
     </button>
     <button onclick={() => appWindow.close()}>
-      <CloseIcon />
+      <X size={20} strokeWidth={1} absoluteStrokeWidth />
     </button>
   </div>
 </div>

@@ -1,1 +1,1 @@
-<!-- Go to src/app/features/shell for the shell component -->
+<!-- Go to src/app/features/shell for the app entry -->
