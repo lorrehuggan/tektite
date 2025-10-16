@@ -1,0 +1,3 @@
+@utility color-transition {
+  @apply transition-colors duration-150 ease-in-out;
+}
