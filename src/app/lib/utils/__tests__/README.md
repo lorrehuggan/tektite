@@ -4,7 +4,8 @@ This directory contains tests for the FileApi utility class.
 
 ## Overview
 
-The tests use Vitest as the testing framework, which provides excellent TypeScript support and works well with Vite-based projects like SvelteKit.
+The tests use Vitest as the testing framework, which provides excellent TypeScript support and works
+well with Vite-based projects like SvelteKit.
 
 ## Setup
 
@@ -62,7 +63,8 @@ The `file.test.ts` file contains comprehensive tests for the `listNotes` method,
 
 ## Mocking Strategy
 
-The tests mock the Tauri `invoke` function to simulate backend responses without requiring the actual Rust backend to be running. This allows for:
+The tests mock the Tauri `invoke` function to simulate backend responses without requiring the
+actual Rust backend to be running. This allows for:
 
 - Fast test execution
 - Predictable test results
@@ -71,7 +73,8 @@ The tests mock the Tauri `invoke` function to simulate backend responses without
 
 ## Test Data
 
-The tests use realistic mock data that matches the expected structure of `NoteInfo` objects returned by the Rust backend, including:
+The tests use realistic mock data that matches the expected structure of `NoteInfo` objects returned
+by the Rust backend, including:
 
 - File paths with various formats
 - Realistic file sizes and timestamps
@@ -80,4 +83,5 @@ The tests use realistic mock data that matches the expected structure of `NoteIn
 
 ## Error Testing
 
-The error handling tests ensure that the `FileApi.handleError` method properly normalizes different error types into consistent `AppError` objects, maintaining type safety throughout the application.
+The error handling tests ensure that the `FileApi.handleError` method properly normalizes different
+error types into consistent `AppError` objects, maintaining type safety throughout the application.
