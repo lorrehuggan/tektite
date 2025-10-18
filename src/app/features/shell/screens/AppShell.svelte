@@ -15,10 +15,12 @@
   });
 </script>
 
-<TitleBar />
-<Container>
-  <LeftBar />
-  <Main />
-  <RightBar />
+<div>
+  <TitleBar />
+  <Container>
+    <LeftBar />
+    <Main />
+    <RightBar />
+  </Container>
   <StatusBar />
-</Container>
+</div>

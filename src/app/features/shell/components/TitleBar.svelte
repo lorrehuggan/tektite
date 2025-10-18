@@ -1,22 +1,23 @@
 <script>
   import { Window } from "@tauri-apps/api/window";
-
-  import CloseIcon from "@/components/icons/CloseIcon.svelte";
-  import MinusIcon from "@/components/icons/MinusIcon.svelte";
+  import { Minus, X } from "lucide-svelte";
 
   const appWindow = new Window("main");
 </script>
 
-<div data-tauri-drag-region class="titlebar px-2">
+<div
+  data-tauri-drag-region
+  class="titlebar border-border-muted border-b-[1px] px-2"
+>
   <div>
-    <p class="uppercase">tektite</p>
+    <p class="text-xs tracking-wide uppercase">tektite</p>
   </div>
-  <div class="flex items-center gap-2">
+  <div class="flex items-center gap-1">
     <button onclick={() => appWindow.minimize()}>
-      <MinusIcon />
+      <Minus size={20} strokeWidth={1} absoluteStrokeWidth />
     </button>
     <button onclick={() => appWindow.close()}>
-      <CloseIcon />
+      <X size={20} strokeWidth={1} absoluteStrokeWidth />
     </button>
   </div>
 </div>
@@ -24,7 +25,7 @@
 <style>
   .titlebar {
     height: 30px;
-    background: var(--color-surface-1);
+    background: var(--color-surface-0);
     user-select: none;
     display: grid;
     grid-template-columns: auto max-content;

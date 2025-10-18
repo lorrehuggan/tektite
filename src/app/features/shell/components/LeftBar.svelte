@@ -3,9 +3,8 @@
 </script>
 
 <div
-  class="border-border-muted bg-surface-3 border-r-[1px] p-2"
+  class="border-border-muted bg-surface-0 border-r-[1px] p-2"
   style:width={layoutState.leftSidebarCollapsed ? "60px" : "280px"}
-  class:collapsed={layoutState.leftSidebarCollapsed}
 >
-  <p>Left Bar</p>
+  <div class="text-xs"></div>
 </div>

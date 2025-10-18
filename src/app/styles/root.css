@@ -1,4 +1,8 @@
 @import "tailwindcss";
+@import "./reset.css";
 @import "./fonts.css";
 @import "./theme.css";
-@import "./reset.css";
+@import "./utils.css";
+@import "./editor.css";
+
+@plugin "@tailwindcss/typography";

@@ -12,14 +12,23 @@ const config = {
     adapter: adapter({
       fallback: "index.html",
     }),
+    experimental:{
+      remoteFunctions: true
+    },
     alias: {
       "@/components": "./src/app/components",
       "@/features": "./src/app/features",
       "@/lib": "./src/app/lib",
       "@/styles": "./src/app/styles",
       "@/utils": "./src/app/utils",
+      "@/types": "./src/app/types"
     },
   },
+  compilerOptions: {
+    experimental: {
+      async: true
+    }
+  }
 };
 
 export default config;

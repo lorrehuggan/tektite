@@ -2,15 +2,15 @@
   /* Jellybeans Color Palette */
 
   /* Base Colors */
-  --color-base: hsl(240, 9%, 9%);
+  --color-base: hsl(240, 2%, 9%);
   --color-mantle: hsl(240, 8%, 7%);
   --color-crust: hsl(240, 10%, 5%);
 
   /* Surface Colors */
-  --color-surface-0: hsl(240, 9%, 9%);
-  --color-surface-1: hsl(240, 8%, 12%);
-  --color-surface-2: hsl(240, 7%, 15%);
-  --color-surface-3: hsl(240, 6%, 18%);
+  --color-surface-0: hsl(240, 6%, 6%);
+  --color-surface-1: hsl(240, 5%, 9%);
+  --color-surface-2: hsl(240, 4%, 12%);
+  --color-surface-3: hsl(240, 3%, 15%);
 
   /* Background Colors */
   --color-background: hsl(240, 9%, 9%);
@@ -30,7 +30,7 @@
   --color-overlay-2: hsl(240, 3%, 35%);
 
   /* Brand/Accent Colors */
-  --color-brand: hsl(291, 64%, 42%);
+  --color-brand: hsl(221, 34%, 42%);
   --color-accent: hsl(291, 64%, 42%);
   --color-primary: hsl(291, 64%, 42%);
   --color-secondary: hsl(203, 39%, 44%);
