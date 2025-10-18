@@ -5,7 +5,6 @@
 <div
   class="border-border-muted bg-surface-0 border-l-[1px] p-2"
   style:width={layoutState.rightSidebarCollapsed ? "60px" : "280px"}
-  class:collapsed={layoutState.rightSidebarCollapsed}
 >
   <!-- <p>Right Bar</p> -->
 </div>

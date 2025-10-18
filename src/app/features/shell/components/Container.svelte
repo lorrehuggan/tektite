@@ -2,7 +2,7 @@
   const { children } = $props();
 </script>
 
-<div class="appshell mt-[30px] flex w-screen flex-1 overflow-hidden">
+<div class="appshell mt-[30px] flex w-screen overflow-hidden">
   {@render children()}
 </div>
 
