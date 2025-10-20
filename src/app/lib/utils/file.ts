@@ -1,6 +1,6 @@
 import { invoke } from "@tauri-apps/api/core";
 
-import type { AppError, CreateNoteRequest, Note, NoteInfo } from "@/types/file";
+import type { AppError, CreateNoteRequest, Note, NoteInfo } from "@/types";
 
 /**
  * File operations API wrapper for Tauri commands
@@ -91,28 +91,39 @@ export class FileApi {
   private static handleError(error: unknown): AppError {
     if (typeof error === "string") {
       return {
-        type: "Unknown",
-        message: error,
+        Unknown: error,
       };
     }
 
     if (typeof error === "object" && error !== null) {
       const errorObj = error as Record<string, unknown>;
-      if (errorObj.type && errorObj.message) {
-        return errorObj as unknown as AppError;
+
+      if (
+        ("FileNotFound" in errorObj &&
+          typeof errorObj.FileNotFound === "string") ||
+        ("Io" in errorObj && typeof errorObj.Io === "string") ||
+        ("InvalidPath" in errorObj &&
+          typeof errorObj.InvalidPath === "string") ||
+        ("PermissionDenied" in errorObj &&
+          typeof errorObj.PermissionDenied === "string") ||
+        ("FileAlreadyExists" in errorObj &&
+          typeof errorObj.FileAlreadyExists === "string") ||
+        ("InvalidMarkdown" in errorObj &&
+          typeof errorObj.InvalidMarkdown === "string") ||
+        ("Unknown" in errorObj && typeof errorObj.Unknown === "string")
+      ) {
+        return errorObj as AppError;
       }
 
       if (errorObj.message) {
         return {
-          type: "Unknown",
-          message: String(errorObj.message),
+          Unknown: String(errorObj.message),
         };
       }
     }
 
     return {
-      type: "Unknown",
-      message: "An unknown error occurred",
+      Unknown: "An unknown error occurred",
     };
   }
 }

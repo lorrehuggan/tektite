@@ -6,6 +6,7 @@
   import Container from "../components/Container.svelte";
   import LeftBar from "../components/LeftBar.svelte";
   import Main from "../components/Main.svelte";
+  import MenuBar from "../components/MenuBar.svelte";
   import RightBar from "../components/RightBar.svelte";
   import StatusBar from "../components/StatusBar.svelte";
   import TitleBar from "../components/TitleBar.svelte";
@@ -15,12 +16,11 @@
   });
 </script>
 
-<div>
-  <TitleBar />
-  <Container>
-    <LeftBar />
-    <Main />
-    <RightBar />
-  </Container>
-  <StatusBar />
-</div>
+<TitleBar />
+<Container>
+  <MenuBar />
+  <LeftBar />
+  <Main />
+  <RightBar />
+</Container>
+<StatusBar />

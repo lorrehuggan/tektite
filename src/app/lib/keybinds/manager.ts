@@ -31,6 +31,13 @@ const keybinds: Keybind[] = [
       appWindow.toggleMaximize();
     },
   },
+  {
+    key: ["Control", "m"],
+    action: () => {
+      layoutActions.closeLeftSidebar();
+      layoutActions.closeRightSidebar();
+    },
+  },
 ];
 
 export const registerKeybinds = () => {

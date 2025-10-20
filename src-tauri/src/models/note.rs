@@ -1,6 +1,9 @@
 use serde::{Deserialize, Serialize};
+use ts_rs::TS;
 
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone, Serialize, Deserialize, TS)]
+#[serde(rename_all = "camelCase")]
+#[ts(export, export_to = "../../src/app/types/note.ts")]
 pub struct Note {
     pub path: String,
     pub title: String,
@@ -10,7 +13,9 @@ pub struct Note {
     pub modified_at: Option<String>,
 }
 
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone, Serialize, Deserialize, TS)]
+#[serde(rename_all = "camelCase")]
+#[ts(export, export_to = "../../src/app/types/note.ts")]
 pub struct NoteInfo {
     pub path: String,
     pub title: String,
@@ -19,7 +24,9 @@ pub struct NoteInfo {
     pub is_directory: bool,
 }
 
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone, Serialize, Deserialize, TS)]
+#[serde(rename_all = "camelCase")]
+#[ts(export, export_to = "../../src/app/types/note.ts")]
 pub struct CreateNoteRequest {
     pub path: String,
     pub title: String,

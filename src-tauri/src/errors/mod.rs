@@ -1,7 +1,9 @@
 use serde::{Deserialize, Serialize};
 use thiserror::Error;
+use ts_rs::TS;
 
-#[derive(Error, Debug, Serialize, Deserialize)]
+#[derive(Error, Debug, Serialize, Deserialize, TS)]
+#[ts(export, export_to = "../../src/app/types/errors.ts")]
 pub enum AppError {
     #[error("File not found: {0}")]
     FileNotFound(String),

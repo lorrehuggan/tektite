@@ -1,7 +1,7 @@
 import { invoke } from "@tauri-apps/api/core";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
-import type { AppError, NoteInfo } from "@/types/file";
+import type { AppError, NoteInfo } from "@/types";
 
 import { FileApi } from "../file";
 

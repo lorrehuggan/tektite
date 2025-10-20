@@ -1,13 +1,13 @@
 export * from "./notes";
 
-export const queryKeys = {
+export const QUERY_KEYS = {
   notes: {
     all: ["notes"] as const,
     list: (directory: string) =>
-      [...queryKeys.notes.all, "list", directory] as const,
+      [...QUERY_KEYS.notes.all, "list", directory] as const,
     detail: (filePath: string) =>
-      [...queryKeys.notes.all, "detail", filePath] as const,
+      [...QUERY_KEYS.notes.all, "detail", filePath] as const,
     info: (filePath: string) =>
-      [...queryKeys.notes.all, "info", filePath] as const,
+      [...QUERY_KEYS.notes.all, "info", filePath] as const,
   },
 } as const;

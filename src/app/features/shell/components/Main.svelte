@@ -3,7 +3,7 @@
 </script>
 
 <div class="bg-surface-1/25 w-full">
-  <div class=" mx-auto w-full max-w-[1000px] p-8">
+  <div class="mx-auto w-full max-w-[1000px] py-8">
     <EditorRoot />
   </div>
 </div>

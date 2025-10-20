@@ -43,3 +43,6 @@ dirs = "5.0"
 
 # Path utilities
 walkdir = "2.5"
+
+# Types
+ts-rs = { version = "11.1.0", features = ["chrono-impl"] }

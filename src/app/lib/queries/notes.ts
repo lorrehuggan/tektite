@@ -1,6 +1,6 @@
 import { createMutation, createQuery } from "@tanstack/svelte-query";
 
-import type { CreateNoteRequest } from "@/types/file";
+import type { CreateNoteRequest } from "@/types";
 
 import { FileApi } from "../utils/file";
 

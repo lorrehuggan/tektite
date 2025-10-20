@@ -1,3 +1,19 @@
 .ProseMirror {
   outline: none;
 }
+
+.ProseMirror h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1em;
+  margin: 0.25em 0em 0em 0em;
+}
+
+.ProseMirror p {
+  font-size: 1em;
+  line-height: 1em;
+  margin: 0.15em 0em 0em 0em;
+}

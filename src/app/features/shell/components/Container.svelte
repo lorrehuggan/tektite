@@ -8,6 +8,10 @@
 
 <style>
   .appshell {
-    height: calc(100vh - 60px);
+    min-height: calc(100vh - 60px);
+    display: grid;
+    grid-template-columns: 48px auto 1fr auto;
+    grid-template-rows: 1fr;
+    transition: grid-template-columns 0.25s ease;
   }
 </style>

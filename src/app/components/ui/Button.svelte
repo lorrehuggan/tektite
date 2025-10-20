@@ -6,8 +6,16 @@
   const button = tv({
     base: "cursor-pointer",
     variants: {
-      intent: {
-        status: "hover:bg-surface-2 p-1",
+      color: {
+        icon: "hover:bg-surface-1",
+      },
+      size: {
+        iconSmall: "p-1",
+        iconMedium: "p-2",
+        iconLarge: "p-3",
+        sm: "px-2 py-1 text-sm",
+        md: "px-4 py-2 text-base",
+        lg: "px-6 py-3 text-lg",
       },
       disabled: {
         true: "opacity-50 cursor-not-allowed",
@@ -20,12 +28,12 @@
 
   interface Props
     extends ButtonVariants,
-      Omit<HTMLButtonAttributes, "disabled"> {
+      Omit<HTMLButtonAttributes, "disabled" | "color"> {
     children: Snippet;
   }
-  const { disabled, intent, children, ...rest }: Props = $props();
+  const { disabled, color, size, children, ...rest }: Props = $props();
 
-  const classes = $derived(button({ intent, disabled }));
+  const classes = $derived(button({ color, size, disabled }));
 </script>
 
 <button {...rest} class={classes} {disabled}>
