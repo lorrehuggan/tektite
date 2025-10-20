@@ -9,4 +9,6 @@ export const layoutActions = {
     (layoutState.leftSidebarCollapsed = !layoutState.leftSidebarCollapsed),
   toggleRightSidebar: () =>
     (layoutState.rightSidebarCollapsed = !layoutState.rightSidebarCollapsed),
+  closeLeftSidebar: () => (layoutState.leftSidebarCollapsed = true),
+  closeRightSidebar: () => (layoutState.rightSidebarCollapsed = true),
 };
