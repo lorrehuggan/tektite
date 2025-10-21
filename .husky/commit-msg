@@ -1,0 +1,26 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+# Check if commit message follows conventional commit format
+commit_regex='^(feat|fix|docs|style|refactor|test|chore|perf|ci|build|revert)(\(.+\))?: .{1,50}'
+
+error_msg="Aborting commit. Your commit message is invalid. Please use the conventional commit format:
+
+<type>[optional scope]: <description>
+
+Examples:
+  feat: add new feature
+  fix: resolve bug in user authentication
+  feat(auth): implement OAuth login
+  docs: update README with installation steps
+  style: fix code formatting
+  refactor: reorganize component structure
+  test: add unit tests for user service
+  chore: update dependencies
+
+Types: feat, fix, docs, style, refactor, test, chore, perf, ci, build, revert"
+
+if ! grep -qE "$commit_regex" "$1"; then
+    echo "$error_msg" >&2
+    exit 1
+fi
