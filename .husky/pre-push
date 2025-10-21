@@ -3,10 +3,22 @@ echo "🧪 Running tests before push..."
 # Run tests
 bun run test
 
-# Check if tests passed
-if [ $? -ne 0 ]; then
-    echo "❌ Tests failed. Push aborted."
-    exit 1
-fi
+# Get the exit code
+test_exit_code=$?
 
-echo "✅ All tests passed. Proceeding with push."
+# Check if tests failed (excluding "no tests found" scenario)
+if [ $test_exit_code -eq 1 ]; then
+    # Check if it's just "no test files found"
+    if bun run test 2>&1 | grep -q "No test files found"; then
+        echo "⚠️  No test files found, skipping test verification."
+        echo "✅ Proceeding with push."
+    else
+        echo "❌ Tests failed. Push aborted."
+        exit 1
+    fi
+elif [ $test_exit_code -ne 0 ]; then
+    echo "❌ Tests failed with exit code $test_exit_code. Push aborted."
+    exit 1
+else
+    echo "✅ All tests passed. Proceeding with push."
+fi
