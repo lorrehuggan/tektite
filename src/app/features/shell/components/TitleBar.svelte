@@ -1,6 +1,6 @@
 <script>
   import { Window } from "@tauri-apps/api/window";
-  import { Minus, X } from "lucide-svelte";
+  import { Menu, Minus, X } from "lucide-svelte";
 
   const appWindow = new Window("main");
 </script>
@@ -9,8 +9,9 @@
   data-tauri-drag-region
   class="titlebar border-border-muted border-b-[1px] px-2"
 >
-  <div>
-    <p class="text-xs tracking-wide uppercase">tektite</p>
+  <div class="flex items-center gap-1">
+    <Menu size={16} strokeWidth={1} absoluteStrokeWidth />
+    <p class="text-xs tracking-wide capitalize">tektite</p>
   </div>
   <div class="flex items-center gap-1">
     <button onclick={() => appWindow.minimize()}>

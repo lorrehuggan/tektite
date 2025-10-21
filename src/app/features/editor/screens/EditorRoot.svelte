@@ -10,7 +10,7 @@
     editorState.editor = new Editor({
       element,
       extensions: [StarterKit],
-      content: "<p>Hello World</p>",
+      autofocus: true,
       onTransaction: ({ editor }) => {
         editorState = { editor };
       },
@@ -23,5 +23,3 @@
 </script>
 
 <div bind:this={element} class="prose prose-invert max-w-none"></div>
-
-<style></style>
