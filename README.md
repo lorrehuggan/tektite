@@ -1,4 +1,4 @@
-# tektite
+# ends
 
 A small terminal trading game built with Bun, SolidJS, and OpenTUI.
 

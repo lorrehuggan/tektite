@@ -1,6 +1,6 @@
 # Plan: Ends - Terminal Trading Game
 
-> Source PRD: https://github.com/lorrehuggan/tektite/issues/6
+> Source PRD: https://github.com/lorrehuggan/ends/issues/6
 
 ## Architectural decisions
 
