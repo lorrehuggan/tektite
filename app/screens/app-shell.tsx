@@ -38,6 +38,32 @@ function previousTravelTarget(current: (typeof CITIES)[number], currentCity: (ty
   return cities[(index - 1 + cities.length) % cities.length]!;
 }
 
+function isConfirmKey(name: string) {
+  return name === "enter" || name === "return";
+}
+
+function isUpKey(name: string, sequence?: string) {
+  return (
+    name === "up" ||
+    name === "arrowup" ||
+    name === "arrow_up" ||
+    name === "k" ||
+    sequence === "\u001b[A" ||
+    sequence === "\u001bOA"
+  );
+}
+
+function isDownKey(name: string, sequence?: string) {
+  return (
+    name === "down" ||
+    name === "arrowdown" ||
+    name === "arrow_down" ||
+    name === "j" ||
+    sequence === "\u001b[B" ||
+    sequence === "\u001bOB"
+  );
+}
+
 export function AppShell() {
   const renderer = useRenderer();
   const dimensions = useTerminalDimensions();
@@ -146,7 +172,7 @@ export function AppShell() {
           return;
         }
 
-        if (key.name === "enter") {
+        if (isConfirmKey(key.name)) {
           commitModal();
           return;
         }
@@ -200,17 +226,17 @@ export function AppShell() {
         return;
       }
 
-      if (key.name === "up" || key.name === "k") {
+      if (isUpKey(key.name, key.sequence)) {
         setSelectedCity(previousTravelTarget(selectedCity(), state.currentCity));
         return;
       }
 
-      if (key.name === "down" || key.name === "j") {
+      if (isDownKey(key.name, key.sequence)) {
         setSelectedCity(nextTravelTarget(selectedCity(), state.currentCity));
         return;
       }
 
-      if (key.name === "enter") {
+      if (isConfirmKey(key.name)) {
         const prices = generatePrices();
         const priceEvent = rollPriceEvent();
         dispatch({
@@ -220,15 +246,11 @@ export function AppShell() {
           encounter: rollEncounter(),
           priceEvent,
         });
+        setSelectedCity(firstTravelTarget(selectedCity()));
       }
     }
 
     if (state.screen === "encounter" && state.activeEncounter) {
-      if (key.name === "escape") {
-        dispatch({ type: "NAVIGATE", screen: "market" });
-        return;
-      }
-
       if (key.name === "1") {
         dispatch({ type: "ENCOUNTER_CHOICE", choice: 1, outcomeRoll: Math.random() });
         return;
@@ -256,7 +278,7 @@ export function AppShell() {
             <MarketScreen selectedDrug={selectedDrug()} modal={modal()} />
           </Match>
           <Match when={state.screen === "travel"}>
-            <TravelScreen selectedCity={selectedCity()} />
+            <TravelScreen selectedCity={selectedCity} />
           </Match>
           <Match when={state.screen === "encounter"}>
             <EncounterScreen />

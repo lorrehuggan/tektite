@@ -1,4 +1,4 @@
-import { For, Show } from "solid-js";
+import { For, Show, type Accessor } from "solid-js";
 import { DRUG_BASE_PRICES, DRUGS } from "../game/constants";
 import { selectCurrentPrices, selectInventoryCount, selectInventoryValue, selectMaxAffordable, selectMaxSellable, selectPriceIndicator } from "../game/selectors";
 import type { Drug } from "../game/types";
@@ -107,22 +107,39 @@ export function MarketScreen(props: MarketScreenProps) {
       </box>
 
       <box border borderStyle="single" paddingX={2} paddingY={1} backgroundColor="#020617">
-        <text fg="#fbbf24">B</text><text fg="#cbd5e1">uy</text>
-        <text fg="#64748b">  ·  </text>
-        <text fg="#fbbf24">S</text><text fg="#cbd5e1">ell</text>
-        <text fg="#64748b">  ·  </text>
-        <text fg="#fbbf24">T</text><text fg="#cbd5e1">ravel</text>
-        <text fg="#64748b">  ·  </text>
-        <text fg="#fbbf24">P</text><text fg="#cbd5e1">ay debt</text>
-        <text fg="#64748b">  ·  </text>
-        <text fg="#fbbf24">Q</text><text fg="#cbd5e1">uit</text>
+        <box flexDirection="row" gap={2}>
+          <box flexDirection="row">
+            <text fg="#fbbf24">B</text>
+            <text fg="#cbd5e1">uy</text>
+          </box>
+          <text fg="#64748b">·</text>
+          <box flexDirection="row">
+            <text fg="#fbbf24">S</text>
+            <text fg="#cbd5e1">ell</text>
+          </box>
+          <text fg="#64748b">·</text>
+          <box flexDirection="row">
+            <text fg="#fbbf24">T</text>
+            <text fg="#cbd5e1">ravel</text>
+          </box>
+          <text fg="#64748b">·</text>
+          <box flexDirection="row">
+            <text fg="#fbbf24">P</text>
+            <text fg="#cbd5e1">ay debt</text>
+          </box>
+          <text fg="#64748b">·</text>
+          <box flexDirection="row">
+            <text fg="#fbbf24">Q</text>
+            <text fg="#cbd5e1">uit</text>
+          </box>
+        </box>
       </box>
 
       <Show when={props.modal}>
-        {(modal: () => TransactionModalState) => {
-          const selectedPrice = currentPrices()[props.selectedDrug];
-          const maxAffordable = selectMaxAffordable(state, props.selectedDrug);
-          const maxSellable = selectMaxSellable(state, props.selectedDrug);
+        {(modal: Accessor<TransactionModalState>) => {
+          const selectedPrice = () => currentPrices()[props.selectedDrug];
+          const maxAffordable = () => selectMaxAffordable(state, props.selectedDrug);
+          const maxSellable = () => selectMaxSellable(state, props.selectedDrug);
 
           return (
             <box position="absolute" left={20} top={8} width={44} border borderStyle="double" padding={1} backgroundColor="#111827">
@@ -132,18 +149,18 @@ export function MarketScreen(props: MarketScreenProps) {
                 </strong>
               </text>
               <text fg="#cbd5e1">
-                {modal().kind === "pay" ? `Debt £${state.debt}` : `${props.selectedDrug} @ £${selectedPrice}`}
+                {modal().kind === "pay" ? `Debt £${state.debt}` : `${props.selectedDrug} @ £${selectedPrice()}`}
               </text>
               <text fg="#94a3b8">
                 {modal().kind === "buy"
-                  ? `Max affordable: ${maxAffordable}`
+                  ? `Max affordable: ${maxAffordable()}`
                   : modal().kind === "sell"
-                    ? `Max sellable: ${maxSellable}`
+                    ? `Max sellable: ${maxSellable()}`
                     : `Current cash: £${state.cash}`}
               </text>
               <text fg="#f8fafc">Amount: {modal().input || "_"}</text>
               <Show when={modal().error}>
-                {(error: () => string) => <text fg="#fca5a5">{error()}</text>}
+                {(error: Accessor<string>) => <text fg="#fca5a5">{error()}</text>}
               </Show>
               <text fg="#64748b">Enter confirms · Esc cancels</text>
             </box>

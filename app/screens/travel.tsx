@@ -2,9 +2,10 @@ import { For } from "solid-js";
 import { CITIES } from "../game/constants";
 import type { City } from "../game/types";
 import { useGame } from "../lib/use-game";
+import type { Accessor } from "solid-js";
 
 export interface TravelScreenProps {
-  selectedCity: City;
+  selectedCity: Accessor<City>;
 }
 
 export function TravelScreen(props: TravelScreenProps) {
@@ -21,16 +22,16 @@ export function TravelScreen(props: TravelScreenProps) {
       <box border borderStyle="rounded" padding={1} flexDirection="column" backgroundColor="#111827">
         <For each={CITIES}>
           {(city) => {
-            const current = city === state.currentCity;
-            const selected = city === props.selectedCity;
+            const current = () => city === state.currentCity;
+            const selected = () => city === props.selectedCity();
 
             return (
-              <box flexDirection="row" justifyContent="space-between" backgroundColor={selected ? "#1e293b" : "transparent"}>
-                <text fg={current ? "#64748b" : selected ? "#f8fafc" : "#cbd5e1"}>
-                  {current ? "✕ " : selected ? "➤ " : "  "}{city}
+              <box flexDirection="row" justifyContent="space-between" backgroundColor={selected() ? "#1e293b" : "transparent"}>
+                <text fg={current() ? "#64748b" : selected() ? "#f8fafc" : "#cbd5e1"}>
+                  {current() ? "✕ " : selected() ? "➤ " : "  "}{city}
                 </text>
-                <text fg={current ? "#64748b" : selected ? "#86efac" : "#64748b"}>
-                  {current ? "current" : selected ? "selected" : ""}
+                <text fg={current() ? "#64748b" : selected() ? "#86efac" : "#64748b"}>
+                  {current() ? "current" : selected() ? "selected" : ""}
                 </text>
               </box>
             );

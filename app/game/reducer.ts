@@ -198,20 +198,16 @@ export function gameReducer(state: GameState, action: GameAction): GameState {
           const totalInventory = selectInventoryCount(nextState) + encounter.deal.quantity;
           if (totalCost > nextState.cash) {
             resultMessages.push("You could not afford the deal.");
-            return appendMessages(nextState, resultMessages);
-          }
-
-          if (totalInventory > nextState.inventoryCapacity) {
+          } else if (totalInventory > nextState.inventoryCapacity) {
             resultMessages.push("You could not carry the deal.");
-            return appendMessages(nextState, resultMessages);
+          } else {
+            nextState.cash -= totalCost;
+            nextState.inventory = {
+              ...nextState.inventory,
+              [encounter.deal.drug]: nextState.inventory[encounter.deal.drug] + encounter.deal.quantity,
+            };
+            resultMessages.push(`You bought ${encounter.deal.quantity} ${encounter.deal.drug} for £${totalCost}.`);
           }
-
-          nextState.cash -= totalCost;
-          nextState.inventory = {
-            ...nextState.inventory,
-            [encounter.deal.drug]: nextState.inventory[encounter.deal.drug] + encounter.deal.quantity,
-          };
-          resultMessages.push(`You bought ${encounter.deal.quantity} ${encounter.deal.drug} for £${totalCost}.`);
         } else {
           resultMessages.push("You declined the dealer's offer.");
         }

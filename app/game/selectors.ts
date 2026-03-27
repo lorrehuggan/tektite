@@ -26,7 +26,10 @@ export function selectMaxAffordable(state: GameState, drug: Drug): number {
 
   if (price <= 0) return 0;
 
-  return Math.floor(state.cash / price);
+  const byMoney = Math.floor(state.cash / price);
+  const byCapacity = state.inventoryCapacity - selectInventoryCount(state);
+
+  return Math.min(byMoney, byCapacity);
 }
 
 export function selectMaxSellable(state: GameState, drug: Drug): number {

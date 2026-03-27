@@ -366,6 +366,65 @@ describe("game state", () => {
     expect(next.messageLog.at(-1)).toBe("You declined the dealer's offer.");
   });
 
+  test("resolves a dealer purchase the player cannot afford", () => {
+    const state = {
+      ...createInitialState(createPrices()),
+      cash: 10,
+      screen: "encounter" as const,
+      activeEncounter: {
+        type: "dealer" as const,
+        description: "Dealer",
+        context: "Offer",
+        choices: ["Buy", "Decline", "Ask around"],
+        deal: {
+          drug: "weed" as const,
+          quantity: 3,
+          pricePerUnit: 100,
+        },
+      },
+    };
+
+    const next = gameReducer(state, { type: "ENCOUNTER_CHOICE", choice: 1, outcomeRoll: 0.5 });
+
+    // Should still clear the encounter and return to market
+    expect(next.cash).toBe(10);
+    expect(next.inventory.weed).toBe(0);
+    expect(next.activeEncounter).toBeNull();
+    expect(next.screen).toBe("market");
+    expect(next.messageLog.at(-1)).toBe("You could not afford the deal.");
+  });
+
+  test("resolves a dealer purchase the player cannot carry", () => {
+    const state = {
+      ...createInitialState(createPrices()),
+      inventory: {
+        weed: 0,
+        pills: 0,
+        powder: 0,
+        crack: 0,
+        shrooms: 99,
+      },
+      screen: "encounter" as const,
+      activeEncounter: {
+        type: "dealer" as const,
+        description: "Dealer",
+        context: "Offer",
+        choices: ["Buy", "Decline", "Ask around"],
+        deal: {
+          drug: "weed" as const,
+          quantity: 3,
+          pricePerUnit: 100,
+        },
+      },
+    };
+
+    const next = gameReducer(state, { type: "ENCOUNTER_CHOICE", choice: 1, outcomeRoll: 0.5 });
+
+    expect(next.activeEncounter).toBeNull();
+    expect(next.screen).toBe("market");
+    expect(next.messageLog.at(-1)).toBe("You could not carry the deal.");
+  });
+
   test("ends the game when encounter damage reduces health to zero", () => {
     const state = {
       ...createInitialState(createPrices()),
@@ -406,6 +465,24 @@ describe("selectors", () => {
     expect(selectNetWorth(state)).toBe(2000 - 5000 + (250 * 2 + 700 + 200 * 3));
     expect(selectMaxAffordable(state, "weed")).toBe(8);
     expect(selectMaxSellable(state, "weed")).toBe(2);
+  });
+
+  test("caps max affordable by remaining capacity", () => {
+    const prices = createPrices({ brixton: { shrooms: 10 } });
+    const state = {
+      ...createInitialState(prices),
+      cash: 10000,
+      inventory: {
+        weed: 0,
+        pills: 0,
+        powder: 0,
+        crack: 0,
+        shrooms: 97,
+      },
+    };
+
+    // Can afford 1000 by cash, but only 3 by capacity
+    expect(selectMaxAffordable(state, "shrooms")).toBe(3);
   });
 
   test("reports price indicators against base price", () => {
